@@ -4,7 +4,7 @@ package cs4620.filters;
  * A very simple image class, providing only for 8-bit three-channel (RGB) images.
  * 
  * @author srm
- * @author <student(s)...>
+ * @author Your Name(s) Here
  */
 public class SimpleImage {
 

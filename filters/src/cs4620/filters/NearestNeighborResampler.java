@@ -4,7 +4,7 @@ package cs4620.filters;
  * A resampler that uses nearest-neighbor interpolation.
  * 
  * @author srm
- * @author <student(s)...>
+ * @author Your Name(s) Here
  */
 public class NearestNeighborResampler implements ResampleEngine {
 

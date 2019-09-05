@@ -8,7 +8,7 @@ package cs4620.filters;
  * 
  * @author srm
  * @author rc844
- * @author <student(s)...>
+ * @author Your Name(s) Here
  */
 public class FilterResampler implements ResampleEngine {
 
