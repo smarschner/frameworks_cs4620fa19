@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl-glfw.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CS4620%20Filters%20Solution/jars/lwjgl-glfw-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl-opengl.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CS4620%20Filters%20Solution/jars/lwjgl-opengl-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl-stb.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CS4620%20Filters%20Solution/jars/lwjgl-stb-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl-tinyexr.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CS4620%20Filters%20Solution/jars/lwjgl-tinyexr-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/CS4620%20Filters%20Solution/jars/lwjgl-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="jars/lwjgl-glfw-natives-windows.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-opengl-natives-windows.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-stb-natives-windows.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-tinyexr-natives-windows.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-glfw-natives-macos.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-opengl-natives-macos.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-stb-natives-macos.jar"/>
+	<classpathentry kind="lib" path="jars/lwjgl-tinyexr-natives-macos.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
