@@ -220,7 +220,6 @@ public abstract class SimpleOpenGLApp {
 
         // Set up a mouse button callback.
         glfwSetCursorPosCallback(window, (window, xpos, ypos) -> {
-            // TODO convert from window units to framebuffer pixels?
             mouseMotionEvent(xpos, ypos);
         });
 
