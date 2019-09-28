@@ -1,5 +1,12 @@
 Lambertian:
 two-boxes
+one-sphere-lambertian
+teapot-lambertian
+
+Phong:
+teapot-phong
+bunny-phong
+wire-box-phong
 
 Microfacet:
 one-sphere
@@ -15,5 +22,4 @@ bunny2.xml
 bunny_norms.xml
 wire-box.xml
 wire-box-orthographic
-teapot
 teapot-GGX
