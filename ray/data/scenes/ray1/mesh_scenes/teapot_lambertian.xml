@@ -19,11 +19,9 @@ that script rather than editing this file.)
     400 240
   </image>
 
-  <shader name="teapot" type="MicrofacetBeckmann">
+  <shader name="teapot" type="Lambertian">
     <diffuseColor>.1 .15 .4</diffuseColor>
-    <alpha>0.100000</alpha>
-    <nt>1.5</nt>
-    <mirrorCoefficient>0.3 0.3 0.3</mirrorCoefficient>
+    <!-- <mirrorCoefficient>0.3 0.3 0.3</mirrorCoefficient> -->
   </shader>
 
   <surface type="Mesh">
