@@ -30,7 +30,7 @@ class MeshGen {
 	public static OBJMesh cylinder(int divisions) {
 		OBJMesh outputMesh = new OBJMesh();
 		
-		// Task1: Generate Cylinder (30pt)
+		// Task1: Generate Cylinder (20pt)
 		// TODO:
 		// Calculate Vertices (positions, uvs, and normals )
 		// Calculate indices in faces (use OBJFace class)
@@ -52,7 +52,7 @@ class MeshGen {
 	public static OBJMesh sphere(int divisionsU, int divisionsV) {
 		OBJMesh outputMesh = new OBJMesh();
 
-		// Task1: Generate Sphere (30pt)
+		// Task1: Generate Sphere (20pt)
 		// TODO:
 		// Calculate Vertices (positions, uvs, and normals )
 		// Calculate indices in faces (use OBJFace class)
@@ -72,7 +72,7 @@ class MeshGen {
 	public static OBJMesh createNormals(OBJMesh inputMesh) {
 		OBJMesh outputMesh = new OBJMesh();
 		
-		// Task2: Compute Normals (40pt)
+		// Task2: Compute Normals (35pt)
 		// TODO:
 		// Copy position data
 		// Copy UV data
