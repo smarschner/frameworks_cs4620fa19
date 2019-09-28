@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Teapot scene for testing texture wrapping
+ -->
+<scene>
+  <exposure>5</exposure>
+  <camera type="PerspectiveCamera">
+    <viewPoint>11 14 18</viewPoint>
+    <viewDir>-11 -14 -19</viewDir>
+    <viewUp>0 1 0</viewUp>
+    <projDistance>1.8</projDistance>
+    <viewWidth>0.5</viewWidth>
+    <viewHeight>0.5</viewHeight>
+  </camera>
+  <backColor>.005 .005 .01</backColor>
+  <image>
+    450 450
+  </image>
+  
+  <texture name="teapotTex" type="ClampTexture">
+    <image>../../textures/Flower.png</image>
+  </texture>
+  <texture name="tableclothTex" type="RepeatTexture">
+    <image>../../textures/Tablecloth.png</image>
+  </texture>
+  
+  <shader name="tablecloth" type="Lambertian">
+    <texture ref="tableclothTex" />
+    <diffuseColor>0 1 0</diffuseColor>
+  </shader>
+
+  <shader name="teapot" type="Phong">
+    <texture ref="teapotTex" />
+    <specularColor>.2 .3 .8</specularColor>
+    <diffuseColor>.2 .3 .8</diffuseColor>
+    <exponent>40</exponent>
+  </shader>
+
+  <surface type="Mesh">
+    <shader ref="teapot" />
+    <data>../../meshes/teapot.obj</data>
+  </surface>
+  <!--
+  <surface type="Mesh">
+  	<data>../../meshes/plane.obj</data>
+  	<shader ref="tablecloth" />
+  </surface>
+  -->
+
+  <light>
+  	<position>3 15 8</position>
+  	<intensity>50 50 50</intensity>
+  </light>
+  <light>
+    <position>7 6 10</position>
+    <intensity>40 40 40</intensity>
+  </light>
+  <light>
+    <position>4 3 -6</position>
+    <intensity>30 30 30</intensity>
+  </light>
+</scene>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Sphere mesh with Earth texture
+ -->
+<scene>
+  <exposure>9</exposure>
+  <camera type="PerspectiveCamera">
+    <viewPoint>4 6 8</viewPoint>
+    <viewDir>-4 -6 -8</viewDir>
+    <viewUp>0 1 0</viewUp>
+    <projDistance>2</projDistance>
+    <viewWidth>0.5</viewWidth>
+    <viewHeight>0.5</viewHeight>
+  </camera>
+  <image>
+    450 450
+  </image>
+  <texture type="RepeatTexture" name="earthTex">
+    <image>../../textures/Earth.png</image>
+  </texture>
+
+  <shader name="earth" type="Lambertian">
+    <texture ref = "earthTex" />
+    <diffuseColor>0.9 0.7 0.3</diffuseColor>
+  </shader>
+
+  <surface type="Mesh">
+    <shader ref="earth" />
+    <data>../../meshes/sphere.obj</data>
+  </surface>
+  
+  <light>
+  	<position>3 10 5</position>
+  	<intensity>30 30 30</intensity>
+  </light>
+</scene>
+

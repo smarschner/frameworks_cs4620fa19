@@ -1,0 +1,19 @@
+Lambertian:
+two-boxes
+
+Microfacet:
+one-sphere
+one-sphere-GGX
+teapot
+earth
+earth-eclipse-textured
+earth-GGX
+
+Lambertian + Microfacet:
+bunny.xml
+bunny2.xml
+bunny_norms.xml
+wire-box.xml
+wire-box-orthographic
+teapot
+teapot-GGX

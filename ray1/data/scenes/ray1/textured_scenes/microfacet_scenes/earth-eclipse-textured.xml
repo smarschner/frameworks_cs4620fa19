@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Eclipse?.
+ -->
+<scene>
+  <exposure>3.3</exposure>
+  <camera type="PerspectiveCamera">
+    <viewPoint>450 100.5 300</viewPoint>
+    <viewDir>-0.6923 -0.1538 -0.4615</viewDir>
+    <viewUp>0 1 0</viewUp>
+    <projDistance>25</projDistance>
+    <viewWidth>5</viewWidth>
+    <viewHeight>5</viewHeight>
+  </camera>
+  <image>
+    2048 2048
+  </image>
+  <texture name="earthlonlat" type="RepeatTexture">
+    <image>../../textures/EarthLonLat.png</image>
+  </texture>
+  <texture name="moonlonlat" type="RepeatTexture">
+    <image>../../textures/MoonLonLat.png</image>
+  </texture>
+
+  <shader name="earth" type="MicrofacetBeckmann">
+    <texture ref="earthlonlat" />
+    <microfacetColor>0.2 0.2 0.2</microfacetColor>
+    <diffuseColor>1 0 0</diffuseColor>
+    <nt>1.5</nt>
+    <alpha>0.2</alpha>
+  </shader>
+
+  <shader name="moon" type="MicrofacetBeckmann">
+    <texture ref="moonlonlat" />
+    <microfacetColor>.8 .8 .8</microfacetColor>
+    <nt>1.5</nt>
+    <alpha>0.5</alpha>
+  </shader>
+
+  <surface type="Sphere">
+    <shader ref="earth" />
+    <center>0 0 0</center>
+    <radius>1</radius>
+  </surface>
+  <surface type="Sphere">
+    <shader ref="moon" />
+    <center>0 1 56.54</center>
+    <radius>0.27</radius>
+  </surface>
+  <light>
+    <position>0 0 23679</position>
+    <intensity>100000000 100000000 100000000</intensity>
+  </light>
+</scene>
