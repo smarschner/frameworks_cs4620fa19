@@ -19,18 +19,17 @@ public class RepeatTexture extends Texture {
 			System.err.println("Warning: Texture uninitialized!");
 			return new Colorf();
 		}
-				
-		// TODO#Ray Extra Credit: Fill in this function.
-		// 1) Convert the input texture coordinates to integer pixel coordinates. Adding 0.5
-		//    before casting a double to an int gives better nearest-pixel rounding.
-		// 2) If these coordinates are outside the image boundaries, modify them to read from
-		//    the correct pixel on the image to give a repeating-tile effect.
-		// 3) Create a Color object based on the pixel coordinate (use Color.fromIntRGB
-		//    and the image object from the Texture class), convert it to a Colorf, and return it.
-		// NOTE: By convention, UV coordinates specify the lower-left corner of the image as the
-		//    origin, but the ImageBuffer class specifies the upper-left corner as the origin.
-
-		return new Colorf();
+		
+		int x = (int) (texCoord.x * image.getWidth() + 0.5f);
+		int y = (int) ((1.0 - texCoord.y) * image.getHeight() + 0.5f);
+		
+		x = x % image.getWidth();
+		if (x < 0f) x += image.getWidth();
+		y = y % image.getHeight();
+		if (y < 0f) y += image.getHeight();
+		
+		Color c = Color.fromIntRGB(image.getRGB(x, y));
+		return new Colorf(c);
 	}
 
 }

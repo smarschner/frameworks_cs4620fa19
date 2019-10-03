@@ -18,15 +18,6 @@ public class ClampTexture extends Texture {
 			System.err.println("Warning: Texture uninitialized!");
 			return new Colorf();
 		}
-				
-		// TODO#A2 Fill in this function.
-		// 1) Convert the input texture coordinates to integer pixel coordinates. Adding 0.5
-		//    before casting a double to an int gives better nearest-pixel rounding.
-		// 2) Clamp the resulting coordinates to the image boundary.
-		// 3) Create a Color object based on the pixel coordinate (use Color.fromIntRGB
-		//    and the image object from the Texture class), convert it to a Colord, and return it.
-		// NOTE: By convention, UV coordinates specify the lower-left corner of the image as the
-		//    origin, but the ImageBuffer class specifies the upper-left corner as the origin.
 			
 		int x = (int) (texCoord.x * image.getWidth() + 0.5f);
 		int y = (int) ((1.0f - texCoord.y) * image.getHeight() + 0.5f);
