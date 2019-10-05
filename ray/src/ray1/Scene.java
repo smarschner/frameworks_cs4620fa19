@@ -10,6 +10,8 @@ import ray1.shader.Shader;
 import ray1.surface.Surface;
 import ray1.shader.Texture;
 import ray1.shader.BRDF;
+import ray1.accel.AccelStruct;
+import ray1.accel.Bvh;
 
 /**
  * The scene is just a collection of objects that compose a scene. The camera,
@@ -74,6 +76,11 @@ public class Scene {
 	public Image getImage() { return this.outputImage; }
 	public void setImage(Image outputImage) { this.outputImage = outputImage; }
 	
+	/** The acceleration structure **/
+	protected AccelStruct accelStruct = new Bvh();
+	public void setAccelStruct(AccelStruct accelStruct) { this.accelStruct = accelStruct; }
+	public AccelStruct getAccelStruct() { return accelStruct; }
+	
 	/**
 	* Initialize method
 	*/
@@ -85,6 +92,9 @@ public class Scene {
 			iter.next().appendRenderableSurfaces(renderableSurfaces);
 		}
 		setSurfaces(renderableSurfaces);
+		Surface surfaceArray[] = new Surface[renderableSurfaces.size()];
+		renderableSurfaces.toArray(surfaceArray);
+		getAccelStruct().build(surfaceArray);
 		
 		// initialize camera
 		getCamera().init();
@@ -134,10 +144,12 @@ public class Scene {
 	 */
 	public boolean getAnyIntersection(Ray ray) {
 		return intersect(new IntersectionRecord(), ray, true);	
+		//TODO#Ray Part 2: uncomment the following line, and comment the previous line out.
+//		return accelStruct.intersect(new IntersectionRecord(), ray, true);
 	}
 	
 	private boolean intersect(IntersectionRecord outRecord, Ray rayIn, boolean anyIntersection) {
-		// TODO#Ray Task 3:
+		// TODO#Ray Part 1 Task 3:
 		//			1) Loop through all surfaces in the scene.
 		//		    2) Intersect each with a copy of the given ray.
 		//		    3) If there was an intersection, check the modified IntersectionRecord to see
@@ -150,5 +162,7 @@ public class Scene {
 		boolean ret = false;
 	
 		return ret;
+//		 TODO#Ray Part 2: uncomment the following line, and comment your previous solution out.
+//		 return accelStruct.intersect(outRecord, rayIn, anyIntersection);
 	}
 }

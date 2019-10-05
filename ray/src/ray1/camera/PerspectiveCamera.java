@@ -24,7 +24,7 @@ public class PerspectiveCamera extends Camera {
     //TODO#Ray Task 1: create necessary new variables/objects here, including an orthonormal basis
     //          formed by three basis vectors and any other helper variables 
     //          if needed.
-    
+
 
     /**
      * Initialize the derived view variables to prepare for using the camera.
@@ -35,7 +35,6 @@ public class PerspectiveCamera extends Camera {
         // based on viewDir and viewUp
         // 2) Set up the helper variables if needed
         
-
     }
 
     /**
@@ -55,6 +54,6 @@ public class PerspectiveCamera extends Camera {
         //    should depend on your transformed inU and inV and your basis vectors,
         //    as well as the projection distance.
 
-              
+
     }
 }

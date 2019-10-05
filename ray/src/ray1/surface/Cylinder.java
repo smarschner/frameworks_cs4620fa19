@@ -4,20 +4,24 @@ import ray1.IntersectionRecord;
 import ray1.Ray;
 import egl.math.Vector3;
 import egl.math.Vector3d;
+import ray1.accel.BboxUtils;
 
 public class Cylinder extends Surface {
 
   /** The center of the bottom of the cylinder  x , y ,z components. */
   protected final Vector3 center = new Vector3();
   public void setCenter(Vector3 center) { this.center.set(center); }
+  public Vector3 getCenter() {return this.center.clone();}
 
   /** The radius of the cylinder. */
   protected double radius = 1.0;
   public void setRadius(double radius) { this.radius = radius; }
+  public double getRadius() {return this.radius;}
 
   /** The height of the cylinder. */
   protected double height = 1.0;
   public void setHeight(double height) { this.height = height; }
+  public double getHeight() {return this.height;}
 
   public Cylinder() { }
 
@@ -38,6 +42,10 @@ public class Cylinder extends Surface {
 
     // If there was an intersection, fill out the intersection record
     return false;
+  }
+  
+  public void computeBoundingBox() {
+	  BboxUtils.cylinderBBox(this);
   }
 
   /**

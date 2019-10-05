@@ -40,7 +40,6 @@ public class OrthographicCamera extends Camera {
         //    inU and inV and your basis vectors u and v.
         // 3) Set the direction field of outRay for an orthographic camera.
 
-
         
 
     }

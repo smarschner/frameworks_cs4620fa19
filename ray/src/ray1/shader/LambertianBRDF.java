@@ -25,7 +25,6 @@ public class LambertianBRDF extends BRDF {
 	public void EvalBRDF(Vector3d incoming, Vector3d outgoing, Vector3d surfaceNormal, Vector2 texCoords, Colorf BRDFValue) {
 		// TODO#Ray: Evaluate the BRDF value of Lambertian reflectance and set it to variable BRDFValue
 		// Hint: getDiffuseReflectance() method can be helpful.
-
 	}
 
 }

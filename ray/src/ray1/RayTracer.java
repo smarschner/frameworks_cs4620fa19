@@ -262,7 +262,7 @@ public class RayTracer {
 		
 		// Reset the output color
 		outColor.setZero();
-		
+
 				
 	}
 }

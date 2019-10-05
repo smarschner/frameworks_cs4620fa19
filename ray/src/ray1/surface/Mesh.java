@@ -49,7 +49,7 @@ public class Mesh extends Surface {
 	}
 	
 	public boolean intersect(IntersectionRecord outRecord, Ray rayIn) {	return false; }
-
+	public void computeBoundingBox() {	}
 
 	/**
 	* append the mesh surface to a surface ArrayList in.

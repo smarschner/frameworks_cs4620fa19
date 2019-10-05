@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Horse mesh (~100K polygons, with normals)
+ -->
+<scene>
+  <camera type="PerspectiveCamera">
+    <viewPoint>-0.5 0 0.01</viewPoint>
+    <viewDir>0.5 0 -0.01</viewDir>
+    <viewUp>0 0 1</viewUp>
+    <projDistance>1</projDistance>
+    <viewWidth>0.5</viewWidth>
+    <viewHeight>0.5</viewHeight>
+  </camera>
+  <image>
+    450 450
+  </image>
+
+  <shader name="blue" type="Lambertian">
+    <diffuseColor>.1 .2 .1</diffuseColor>
+  </shader>
+
+  <shader name="horse" type="Phong">
+    <diffuseColor>.6 .15 .1</diffuseColor>
+    <specularColor>0.4 0.2 0.2</specularColor>
+    <exponent>35</exponent>
+  </shader>
+
+
+    <surface type="Mesh">
+      <shader ref="horse" />
+      <data>../../meshes/horse_norms.obj</data>
+    </surface>
+  <!-- </surface> -->
+  <surface type="Box">
+  	<minpt>-1 -2 -2</minpt>
+  	<maxpt>2 2 -0.076</maxpt>
+  	<shader ref="blue" />
+  </surface>
+  
+   <light>
+    <position>-3.5 3 5</position>
+    <intensity>200 200 200</intensity>
+  </light>
+  <light>
+    <position>-0.5 1.5 3</position>
+    <intensity>30 30 30</intensity>
+  </light>
+</scene>
+
