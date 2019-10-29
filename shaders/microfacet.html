@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Microfacet reflectance</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                font-family: Monospace;
+                background-color: #707080;
+                margin: 0px;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="container">
+        <div id="controlBar" style="text-align: center;">
+            <input type="file" id="meshInputFile" style="display: none;" onchange="loadFile(this.files[0])">
+            <input type="button" id="meshInputButton" value="Select OBJ File" onclick="document.getElementById('meshInputFile').click()">
+            <input type="file" id="texInputFile" style="display: none;" onchange="loadTexture(this.files[0], 'diffuseTexture')">
+            <input type="button" id="texInputButton" value="Select Texture File" onclick="document.getElementById('texInputFile').click()">
+            <label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
+            <label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
+            <label><input type="checkbox" id="showNormalsCheckbox" onchange="toggleNormals(this.checked)">Show Normals</label>
+            <label><input type="checkbox" id="fixLightsToCameraCheckbox" onchange="toggleFixLightsToCamera(this.checked)">Fix lights to camera</label>
+            <br>
+            Normal length:
+            <input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
+            Exposure:
+            <input type="range" id="exposureRange" min="10.0" max="18.0" step="0.5" value="14.0" oninput="setUniformLog('exposure', this.value)">
+            Alpha:
+            <input type="range" id="alphaRange" min="-4.0" max="4.0" step="0.25" value="0.7" oninput="setUniformLog('alpha', this.value)">
+            <br>
+            Left click + drag to orbit. Right click + drag to pan. Scroll to zoom.
+        </div>
+    </div>
+
+        <script src="js/three.min.js"></script>
+        <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r84/three.min.js"></script> -->
+        <script src="js/BufferGeometryUtils.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/OrbitControls.js"></script>
+        <script src="js/OBJLoader.js"></script>
+<!-----------------------------------------------------------------------------
+        VERTEX SHADER
+------------------------------------------------------------------------------>
+        <script id="vertexShader" type="x-shader/x-vertex">
+// = object.matrixWorld
+// uniform mat4 modelMatrix;
+
+// = camera.matrixWorldInverse * object.matrixWorld
+// uniform mat4 modelViewMatrix;
+
+// = camera.projectionMatrix
+// uniform mat4 projectionMatrix;
+
+// = camera.matrixWorldInverse
+// uniform mat4 viewMatrix;
+
+// = inverse transpose of modelViewMatrix
+// uniform mat3 normalMatrix;
+
+// = camera position in world space
+// uniform vec3 cameraPosition;
+
+// RenderMesh Input
+// attribute vec3 position;
+// attribute vec3 normal;
+// attribute vec2 uv;
+
+// TODO#A4: Declare any varyings here.
+
+void main() {
+    // TODO#A4: Compute gl_Position, as well as any varyings you need in the fragment shader.
+    gl_Position = vec4(1.0); // placeholder
+}
+        </script>
+<!-----------------------------------------------------------------------------
+        FRAGMENT SHADER
+------------------------------------------------------------------------------>
+        <script id="fragmentShader" type="x-shader/x-fragment">
+
+#define M_PI 3.141592653589793238
+
+// material-dependent constants for Beckmann distribution
+//float alpha = 0.7;
+float ni = 1.0;
+float nt = 2.0;
+
+uniform vec3 lightColors[ NUM_LIGHTS ];
+uniform vec3 lightPositions[ NUM_LIGHTS ]; // in view coordinates
+
+uniform float exposure;
+
+uniform float alpha;
+
+uniform sampler2D diffuseTexture;
+
+// TODO#A4: Declare any varyings here. 
+
+vec3 to_sRGB(vec3 c) { return pow(c, vec3(1.0/2.2)); }
+vec3 from_sRGB(vec3 c) { return pow(c, vec3(2.2)); }
+
+// Compute Fresnel term for microfacet shading
+//    L: vector from the light source
+//    H: half vector between the vector from the light source and the vector to the camera with unit length
+float computeF(vec3 L, vec3 H) {
+    float c = abs(dot(L, H));
+    float gSquared = (nt * nt) / (ni * ni) - 1.0 + c * c;
+    // clamp if irrational
+    float F = 1.0;
+    if (gSquared >= 0.0) {
+        float g = sqrt(gSquared);
+        F = 0.5 * ((g - c) * (g - c)) / ((g + c) * (g + c));
+        F = F * (1.0 + ((c * (g + c) - 1.0) / (c * (g - c) + 1.0)) * ((c * (g + c) - 1.0) / (c * (g - c) + 1.0)));
+    }
+    return F;
+}
+
+// Compute microfacet distribution using Beckmann distribution
+// Arguments:
+//    N: normal vector
+//    H: half vector between the vector from the light and the vector to the camera with unit length
+float computeD(vec3 N, vec3 H) {
+    float D = 0.0;
+    if (dot(H, N) > 0.0) {
+        float cos_thetam = dot(H, N);
+        float cos_thetam2 = cos_thetam * cos_thetam;
+        float sin_thetam2 = 1.0 - cos_thetam2;
+        float cos_thetam4 = cos_thetam2 * cos_thetam2;
+        float tan_thetam2 = sin_thetam2 / cos_thetam2;
+        D = exp(-tan_thetam2 / (alpha * alpha));
+        D = D / (M_PI * alpha * alpha * cos_thetam4);
+    }
+    return D;
+}
+
+// Called only by computeG()
+// Arguments:
+//   I: vector 
+//   H: half vector between the vector from the light and the vector to the camera with unit length
+//   N: normal vector
+float gHelper(vec3 I, vec3 H, vec3 N) {
+    float G = 0.0;
+    float vm = dot(I, H);           
+    float vn = dot(I, N);
+    if (vm / vn > 0.0) {
+        float cos_thetav = dot(normalize(I), normalize(N));
+        float sin_thetav = sqrt(1.0 - cos_thetav * cos_thetav);
+        float tan_thetav = sin_thetav / cos_thetav;
+        float a = 1.0 / (alpha * tan_thetav);
+        if (a > 1.6) {
+            G = 1.0;
+        } else {
+            G = 3.535 * a + 2.181 * a * a;
+            G = G / (1.0 + 2.276 * a + 2.577 * a * a);
+        }
+    }
+    return G;
+}
+
+// Compute geometric attenuation for Beckmann microfacet shading
+//    N: normal vector
+//    H: half vector between the vector from the light and the vector to the camera with unit length
+//    L: vector from the light source
+//    V: vector to the camera
+float computeG(vec3 N, vec3 H, vec3 L, vec3 V) {
+    float G_im = gHelper(L, H, N);
+    float G_om = gHelper(V, H, N);
+    float G = G_im * G_om;
+    return G;
+}
+
+
+void main() {
+    // TODO#A4: Implement the shading here.
+    gl_FragColor = vec4(1.0); // placeholder
+}
+
+        </script>
+<!-----------------------------------------------------------------------------
+        END SHADERS
+------------------------------------------------------------------------------>
+        <script src="js/A4Common.js"></script>
+        <script>
+            commonInit(false);
+            init();
+            animate();
+            
+            function init() {
+                defaultTextureTarget = 'diffuseTexture';
+                meshMaterial.uniforms.diffuseTexture = { type: 't', value: null };
+            
+                // TODO: add the light back in
+                addLight(new THREE.Vector3(50, 50, 100), new THREE.Vector3(0.8, 0.8, 0.8));
+                addLight(new THREE.Vector3(-50, -50, -50), new THREE.Vector3(0.5, 0.5, 0.6));
+                
+                document.getElementById('alphaRange').oninput();
+            }
+        </script>
+    </body>
+</html>

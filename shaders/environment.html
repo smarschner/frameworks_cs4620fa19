@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Environment mapping</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <style>
+            body {
+                font-family: Monospace;
+                background-color: #707080;
+                margin: 0px;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="container">
+        <div id="controlBar" style="text-align: center;">
+            <input type="file" id="meshInputFile" style="display: none;" onchange="loadFile(this.files[0])">
+            <input type="button" id="meshInputButton" value="Select OBJ File" onclick="document.getElementById('meshInputFile').click()">
+            <label><input type="checkbox" id="showAxesCheckbox" onchange="toggleAxes(this.checked)" checked="true">Show Axes</label>
+            <label><input type="checkbox" id="showWireframeCheckbox" onchange="toggleWireframe(this.checked)">Show Wireframe</label>
+            <label><input type="checkbox" id="showNormalsCheckbox" onchange="toggleNormals(this.checked)">Show Normals</label>
+            <label><input type="checkbox" id="fixLightsToCameraCheckbox" onchange="toggleFixLightsToCamera(this.checked)">Fix lights to camera</label>
+            <br>
+            Normal length:
+            <input type="range" id="normalLengthRange" min="0.02" max="0.5" step="0.02" value="0.3" oninput="setNormalLength(this.value)">
+            Exposure:
+            <input type="range" id="exposureRange" min="-4.0" max="4.0" step="0.5" value="0.0" oninput="setUniformLog('exposure', this.value)">
+            <br>
+            Left click + drag to orbit. Right click + drag to pan. Scroll to zoom.
+        </div>
+    </div>
+
+        <script src="js/three.min.js"></script>
+        <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r84/three.min.js"></script> -->
+        <script src="js/BufferGeometryUtils.js"></script>
+        <script src="js/Detector.js"></script>
+        <script src="js/OrbitControls.js"></script>
+        <script src="js/OBJLoader.js"></script>
+<!-----------------------------------------------------------------------------
+        VERTEX SHADER
+------------------------------------------------------------------------------>
+        <script id="vertexShader" type="x-shader/x-vertex">
+// = object.matrixWorld
+// uniform mat4 modelMatrix;
+
+// = camera.matrixWorldInverse * object.matrixWorld
+// uniform mat4 modelViewMatrix;
+
+// = camera.projectionMatrix
+// uniform mat4 projectionMatrix;
+
+// = camera.matrixWorldInverse
+// uniform mat4 viewMatrix;
+
+// = inverse transpose of modelViewMatrix
+// uniform mat3 normalMatrix;
+
+// = camera position in world space
+// uniform vec3 cameraPosition;
+
+// RenderMesh Input
+// attribute vec3 position;
+// attribute vec3 normal;
+// attribute vec2 uv;
+
+// TODO#A4: Declare any varyings here.
+
+void main() {
+    // TODO#A4: Compute gl_Position, as well as any varyings you need in the fragment shader.
+    gl_Position = vec4(1.0); // placeholder
+}
+        </script>
+<!-----------------------------------------------------------------------------
+        FRAGMENT SHADER
+------------------------------------------------------------------------------>
+        <script id="fragmentShader" type="x-shader/x-fragment">
+uniform float exposure; // Multiply the final color by this.
+
+uniform samplerCube environmentMap; // Use samplerCube to look up into this.
+
+// TODO#A4: Declare any varyings here.
+
+vec3 to_sRGB(vec3 c) { return pow(c, vec3(1.0/2.2)); }
+vec3 from_sRGB(vec3 c) { return pow(c, vec3(2.2)); }
+
+void main() {
+    // TODO#A4: Implement the mirror reflection here.
+    gl_FragColor = vec4(1.0); // placeholder
+}
+        </script>
+<!-----------------------------------------------------------------------------
+        END SHADERS
+------------------------------------------------------------------------------>
+        <script src="js/A4Common.js"></script>
+        <script>
+            commonInit(false);
+            init();
+            animate();
+            
+            function init() {
+                loadEnvironmentMap('data/textures/LancellottiChapel/');
+            
+                addLight(new THREE.Vector3(50, 50, 100), new THREE.Vector3(0.8, 0.8, 0.8));
+                addLight(new THREE.Vector3(-50, -50, -50), new THREE.Vector3(0.5, 0.5, 0.6));
+            }
+        </script>
+    </body>
+</html>
