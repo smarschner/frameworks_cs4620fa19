@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<scene>
+	<texture>
+		<name>Earth</name>
+		<data>
+			<file>data/textures/Earth.png</file>
+		</data>
+	</texture>
+	
+	<material>
+		<name>Earth</name>
+		<data>
+			<type>Ambient</type>
+			<diffuse>
+				<texture>Earth</texture>
+			</diffuse>
+		</data>
+	</material>
+	
+	<object>
+		<name>Earth</name>
+		<data>
+			<mesh>Sphere</mesh>
+			<material>Earth</material>
+		</data>
+	</object>
+	<object>
+		<name>Camera</name>
+		<data type="SceneCamera">
+			<zPlanes>0.02 1000.0</zPlanes>
+			<perspective>0.01 0.01</perspective>
+			
+			<translation>0 0 10</translation>
+		</data>
+	</object>
+</scene>

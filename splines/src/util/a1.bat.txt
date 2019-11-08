@@ -1,0 +1,44 @@
+java -jar meshgen.jar cube -o cube.obj
+java -jar meshgen.jar -nv -f cube.obj -o cubeNV.obj
+java -jar meshgen.jar -nv -f cube.obj -o cubeNVO.obj -opt
+java -jar meshgen.jar -nf -f cube.obj -o cubeNF.obj
+
+java -jar meshgen.jar cylinder -o cylinder.obj
+java -jar meshgen.jar -nv -f cylinder.obj -o cylinderNV.obj
+java -jar meshgen.jar -nv -f cylinder.obj -o cylinderNVO.obj -opt
+java -jar meshgen.jar -nf -f cylinder.obj -o cylinderNF.obj
+java -jar meshgen.jar -n 64 cylinder -o cylinderHigh.obj
+java -jar meshgen.jar -nv -f cylinderHigh.obj -o cylinderHighNV.obj
+java -jar meshgen.jar -nv -f cylinderHigh.obj -o cylinderHighNVO.obj -opt
+java -jar meshgen.jar -nf -f cylinderHigh.obj -o cylinderHighNF.obj
+java -jar meshgen.jar -n 3 cylinder -o cylinderLow.obj
+java -jar meshgen.jar -nv -f cylinderLow.obj -o cylinderLowNV.obj
+java -jar meshgen.jar -nv -f cylinderLow.obj -o cylinderLowNVO.obj -opt
+java -jar meshgen.jar -nf -f cylinderLow.obj -o cylinderLowNF.obj
+
+
+java -jar meshgen.jar sphere -o sphere.obj
+java -jar meshgen.jar -nv -f sphere.obj -o sphereNV.obj
+java -jar meshgen.jar -nv -f sphere.obj -o sphereNVO.obj -opt
+java -jar meshgen.jar -nf -f sphere.obj -o sphereNF.obj
+java -jar meshgen.jar -n 64 -m 32 sphere -o sphereHigh.obj
+java -jar meshgen.jar -nv -f sphereHigh.obj -o sphereHighNV.obj
+java -jar meshgen.jar -nv -f sphereHigh.obj -o sphereHighNVO.obj -opt
+java -jar meshgen.jar -nf -f sphereHigh.obj -o sphereHighNF.obj
+java -jar meshgen.jar -n 3 -m 2 sphere -o sphereLow.obj
+java -jar meshgen.jar -nv -f sphereLow.obj -o sphereLowNV.obj
+java -jar meshgen.jar -nv -f sphereLow.obj -o sphereLowNVO.obj -opt
+java -jar meshgen.jar -nf -f sphereLow.obj -o sphereLowNF.obj
+
+java -jar meshgen.jar torus -o torus.obj
+java -jar meshgen.jar -nv -f torus.obj -o torusNV.obj
+java -jar meshgen.jar -nv -f torus.obj -o torusNVO.obj -opt
+java -jar meshgen.jar -nf -f torus.obj -o torusNF.obj
+java -jar meshgen.jar -n 64 -m 64 torus -o torusHigh.obj
+java -jar meshgen.jar -nv -f torusHigh.obj -o torusHighNV.obj
+java -jar meshgen.jar -nv -f torusHigh.obj -o torusHighNVO.obj -opt
+java -jar meshgen.jar -nf -f torusHigh.obj -o torusHighNF.obj
+java -jar meshgen.jar -n 3 -m 3 torus -o torusLow.obj
+java -jar meshgen.jar -nv -f torusLow.obj -o torusLowNV.obj
+java -jar meshgen.jar -nv -f torusLow.obj -o torusLowNVO.obj -opt
+java -jar meshgen.jar -nf -f torusLow.obj -o torusLowNF.obj

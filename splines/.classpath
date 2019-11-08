@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="deps/lib/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="deps/lib/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="deps/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_test.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl-debug.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lzma.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-3.0.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-3.0.0.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-test.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

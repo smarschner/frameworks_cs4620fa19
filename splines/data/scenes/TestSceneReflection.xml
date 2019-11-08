@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<scene>
+	
+    <cubemap>
+        <name>EnvMap</name>
+        <data>
+            <file>data/textures/Envir/LancellottiChapel/</file>
+        </data>
+    </cubemap>
+    
+	<material>
+		<name>Mirror</name>
+		<data>
+			<type>ReflectionMap</type>
+		</data>
+	</material>
+	
+	<mesh>
+		<name>Teapot.obj</name>
+		<data>
+			<file>data/meshes/teapot.obj</file>
+		</data>
+	</mesh>
+
+	<object>
+		<name>Teapot</name>
+		<data>
+			<mesh>Teapot.obj</mesh>
+			<material>Mirror</material>
+		</data>
+	</object>
+    
+    <mesh>
+        <name>SkyBox.obj</name>
+        <data>
+            <file>data/meshes/skybox.obj</file>
+        </data>
+    </mesh>
+    
+    <material>
+        <name>EnvironmentLight</name>
+        <data>
+            <type>Environment</type>
+        </data>
+    </material>
+    
+    <object>
+        <name>SkyBox</name>
+        <data>
+            <mesh>SkyBox.obj</mesh>
+            <material>EnvironmentLight</material>
+        </data>
+    </object>
+    
+    <object>
+        <name>Camera</name>
+        <data type="SceneCamera">
+            <zPlanes>0.02 1000.0</zPlanes>
+            <perspective>0.01 0.01</perspective>
+            <exposure>1</exposure>
+            <rotation>-30 0 0</rotation>
+            <translation>0 7 10</translation>
+        </data>
+    </object>
+    
+</scene>

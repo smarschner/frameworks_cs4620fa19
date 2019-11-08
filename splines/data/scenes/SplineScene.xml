@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<scene>
+	<object>
+		<name>Light0</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>1 1 1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light1</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>1 1 -1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light2</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>1 -1 1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light3</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>1 -1 -1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light4</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>-1 1 1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light5</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>-1 1 -1</translation>
+		</data>
+	</object>
+	
+	<object>
+		<name>Light6</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>-1 -1 1</translation>
+		</data>
+	</object>
+
+	<object>
+		<name>Light7</name>
+		<data type="SceneLight">
+			<intensity>1 1 1</intensity>
+			<translation>-1 -1 -1</translation>
+		</data>
+	</object>
+	
+	<material>
+        <name>Sweep</name>
+        <data>
+            <type>Spline</type>
+            <diffuse>
+                <texture>UV</texture>
+            </diffuse>
+        </data>
+    </material>
+    
+	<object>
+		<name>SweepSpline</name>
+		<data>
+		    <mesh>TriangleMesh</mesh>
+		    <material>Sweep</material>
+		</data>
+	</object>
+	
+	
+	<object>
+		<name>Camera</name>
+		<data type="SceneCamera">
+			<zPlanes>0.02 1000.0</zPlanes>
+			<perspective>0.01 0.01</perspective>
+			<matrix>1 0 0 0
+			        0 1 0 0
+			        0 0 1 0
+			        0 0 0 1
+			</matrix>
+			<translation>0 0 6</translation>
+			<rotation>90 0 0</rotation>
+		</data>
+	</object>
+</scene>

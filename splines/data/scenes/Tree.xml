@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <material>
+    <name>Bark</name>
+    <data>
+      <type>Lambertian</type>
+      <diffuse>
+        <color>209 147 124 255</color>
+      </diffuse>
+    </data>
+  </material>
+  <material>
+    <name>Bark 2</name>
+    <data>
+      <type>Lambertian</type>
+      <diffuse>
+        <color>180 110 90 255</color>
+      </diffuse>
+    </data>
+  </material>
+  <material>
+    <name>Bark 3</name>
+    <data>
+      <type>Lambertian</type>
+      <diffuse>
+        <color>150 90 70 255</color>
+      </diffuse>
+    </data>
+  </material>
+  <material>
+    <name>Leaves</name>
+    <data>
+      <type>Lambertian</type>
+      <diffuse>
+        <color>10 230 100 255</color>
+      </diffuse>
+    </data>
+  </material>
+  <object>
+    <name>Lower Trunk</name>
+    <data>
+      <matrix>0.5 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.5 0.0 0.0 1.0 0.0 1.0</matrix>
+      <parent>World</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark</material>
+    </data>
+  </object>
+  <object>
+    <name>Upper Trunk</name>
+    <data>
+      <matrix>0.9 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.9 0.0 0.0 1.0 0.0 1.0</matrix>
+      <parent>Lower Trunk</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark</material>
+    </data>
+  </object>
+  <object>
+    <name>Branch 1</name>
+    <data>
+      <matrix>0.2869    0.2787         0         0
+        -1.0451    1.0760         0         0
+        0         0    0.4000         0
+        -1.4451    1.0760         0    1.0000</matrix>
+      <parent>Lower Trunk</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark 2</material>
+    </data>
+  </object>
+  <object>
+    <name>Twig 1</name>
+    <data>
+      <matrix>0.1600         0         0         0
+        0    0.6832    0.9987         0
+        0   -0.1321    0.0903         0
+        0    0.5000    0.4000    1.0000</matrix>
+      <parent>Branch 1</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark 3</material>
+    </data>
+  </object>
+  <object>
+    <name>Twig 2</name>
+    <data>
+      <matrix>0.1600         0         0         0
+        0    0.6832   -0.9987         0
+        0    0.1321    0.0903         0
+        0    0.5000   -0.4000    1.0000</matrix>
+      <parent>Branch 1</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark 3</material>
+    </data>
+  </object>
+  <object>
+    <name>Branch 2</name>
+    <data>
+      <matrix>0.1148   -0.1115         0         0
+        1.1496    1.1836         0         0
+        0         0    0.1600         0
+        0.4000         -0.1000         0    1.0000</matrix>
+      <parent>Upper Trunk</parent>
+      <mesh>Cylinder</mesh>
+      <material>Bark 2</material>
+    </data>
+  </object>
+  <object>
+    <name>Leaves</name>
+    <data>
+      <matrix>3.5   0         0         0
+        0    1         0         0
+        0         0    2.3         0
+        0.1         1.800         0    1.0000</matrix>
+      <parent>Upper Trunk</parent>
+      <mesh>Sphere</mesh>
+      <material>Leaves</material>
+    </data>
+  </object>
+  <object>
+    <name>Camera</name>
+    <data type="cs4620.common.SceneCamera">
+      <matrix>1 -0.02 0.012 0.0 0.2 1 0.006 0.0 -0.012 -0.006 1 0.0 0.423 2.167 3.886 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.01 1000.0</zPlanes>
+      <perspective>0.02 0.02</perspective>
+    </data>
+  </object>
+</scene>
