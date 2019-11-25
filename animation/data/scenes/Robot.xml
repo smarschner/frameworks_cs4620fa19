@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <mesh>
+    <name>RobotHead.obj</name>
+    <data>
+      <file>data/meshes/RobotHead.obj</file>
+    </data>
+  </mesh>
+  <material>
+    <name>CT</name>
+    <data>
+      <type>CookTorrance</type>
+      <diffuse>
+        <color>100 120 200 255</color>
+      </diffuse>
+    </data>
+  </material>
+  <material>
+    <name>UV</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>UV</texture>
+      </diffuse>
+      <normal>
+        <color>128 128 128 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+    </data>
+  </material>
+  <material>
+    <name>CB</name>
+    <data>
+      <type>CookTorrance</type>
+      <diffuse>
+        <texture>Checker Board</texture>
+      </diffuse>
+    </data>
+  </material>
+  <object>
+    <name>Point1</name>
+    <data type="common.SceneLight">
+      <matrix>1.0 0.0 0.0 0.0  0.0 1.0 0.0 0.0  0.0 0.0 1.0 0.0  10.0 10.0 10.0 1.0</matrix>
+      <intensity>100 100 100</intensity>
+      <isAmbient>False</isAmbient>
+      <parent>World</parent>
+    </data>
+  </object>
+  <object>
+    <name>Point2</name>
+    <data type="common.SceneLight">
+      <matrix>1.0 0.0 0.0 0.0  0.0 1.0 0.0 0.0  0.0 0.0 1.0 0.0  -10.0 2.0 -10.0 1.0</matrix>
+      <intensity>70 70 70</intensity>
+      <isAmbient>False</isAmbient>
+      <parent>World</parent>
+    </data>
+  </object>
+  <object>
+    <name>AmbLight</name>
+    <data type="common.SceneLight">
+      <intensity>0.2 0.2 0.2</intensity>
+      <isAmbient>True</isAmbient>
+      <parent>World</parent>
+    </data>
+  </object>
+  <object>
+    <name>Torso</name>
+    <data>
+      <matrix>0.9998612 0.0 0.0 0.0 0.0 0.9998612 0.0 0.0 0.0 0.0 1.0 0.0 0.0 3.80781 0.0 1.0</matrix>
+      <parent>World</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-180 180</rotateX>
+      <rotateY>-180 180</rotateY>
+      <rotateZ>-180 180</rotateZ>
+      <enableScale>1 1 1</enableScale>
+      <enableTranslate>1 1 1</enableTranslate>
+    </data>
+  </object>
+  <object>
+    <name>LHipJoint</name>
+    <data>
+      <matrix>0.5 0.0 0.0 0.0 0.0 0.5 0.0 0.0 0.0 0.0 0.5 0.0 0.5 -1.0 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LLeg</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.6 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.6 0.0 1.0</matrix>
+      <parent>LHipJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-90.0 70.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>Head</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.9999112 0.0 0.0 0.0 0.0 0.9999112 0.0 0.0 2.0 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>RobotHead.obj</mesh>
+      <material>CT</material>
+    </data>
+  </object>
+  <object>
+    <name>RKneeJoint</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.625 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0</matrix>
+      <parent>RLeg</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RShin</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.6 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.6 0.0 1.0</matrix>
+      <parent>RKneeJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>0.0 90.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>RShoulderJoint</name>
+    <data>
+      <matrix>0.4 0.0 0.0 0.0 0.0 0.4 0.0 0.0 0.0 0.0 0.4 0.0 -1.2 0.65 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RArm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.75 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -0.8 0.0 1.0</matrix>
+      <parent>RShoulderJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-180.0 90.0</rotateX>
+      <rotateZ>-90.0 0.0</rotateZ>
+    </data>
+  </object>
+  <object>
+    <name>LKneeJoint</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.625 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0</matrix>
+      <parent>LLeg</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LShin</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.6 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.6 0.0 1.0</matrix>
+      <parent>LKneeJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>0.0 90.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>LShoulderJoint</name>
+    <data>
+      <matrix>0.4 0.0 0.0 0.0 0.0 0.4 0.0 0.0 0.0 0.0 0.4 0.0 1.2 0.65 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LArm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.75 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -0.8 0.0 1.0</matrix>
+      <parent>LShoulderJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-180.0 90.0</rotateX>
+      <rotateZ>0.0 90.0</rotateZ>
+    </data>
+  </object>
+  <object>
+    <name>LElbowJoint</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.571428 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0</matrix>
+      <parent>LArm</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LForearm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.75 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.75 0.0 1.0</matrix>
+      <parent>LElbowJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-120.0 0.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>RElbowJoint</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.571428 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0 1.0</matrix>
+      <parent>RArm</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RForearm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.75 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.75 0.0 1.0</matrix>
+      <parent>RElbowJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-120.0 0.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>RHipJoint</name>
+    <data>
+      <matrix>0.5 0.0 0.0 0.0 0.0 0.5 0.0 0.0 0.0 0.0 0.5 0.0 -0.5 -1.0 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Sphere</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RLeg</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.6 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.6 0.0 1.0</matrix>
+      <parent>RHipJoint</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+      <rotateX>-90.0 70.0</rotateX>
+    </data>
+  </object>
+  <object>
+    <name>Camera1</name>
+    <data type="common.SceneCamera">
+      <matrix>0.9340311 -9.780144E-5 -0.35719225 0.0 -0.10915293 0.95208615 -0.28568676 0.0 0.34010646 0.3058289 0.88926697 0.0 2.9667344 7.207859 5.917903 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.01 1000.0</zPlanes>
+      <perspective>0.02 0.02</perspective>
+    </data>
+  </object>
+</scene>

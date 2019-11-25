@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <mesh>
+    <name>Plane</name>
+    <data>
+      <generator type="mesh.gen.MeshGenPlane"/>
+      <genOptions>
+        <divLatitude>80</divLatitude>
+        <divLongitude>120</divLongitude>
+        <innerRadius>0.25</innerRadius>
+      </genOptions>
+    </data>
+  </mesh>
+  <mesh>
+    <name>RobotHead.obj</name>
+    <data>
+      <file>data/meshes/RobotHead.obj</file>
+    </data>
+  </mesh>
+  <material>
+    <name>UV</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>UV</texture>
+      </diffuse>
+      <fibercolor>
+        <color>165 42 42 255 </color>
+      </fibercolor>
+      <fiberdirection>
+        <color>255 0 0 255 </color>
+      </fiberdirection>
+      <normal>
+        <color>128 128 128 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+      <shininess>50.0</shininess>
+      <roughness>0.3</roughness>
+      <dispMagnitude>0.3</dispMagnitude>
+    </data>
+  </material>
+  <material>
+    <name>CB</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Checker Board</texture>
+      </diffuse>
+      <fibercolor>
+        <color>165 42 42 255 </color>
+      </fibercolor>
+      <fiberdirection>
+        <color>255 0 0 255 </color>
+      </fiberdirection>
+      <normal>
+        <color>128 128 128 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+      <shininess>50.0</shininess>
+      <roughness>0.3</roughness>
+      <dispMagnitude>0.3</dispMagnitude>
+    </data>
+  </material>
+  <object>
+    <name>Torso</name>
+    <data>
+      <matrix>0.9998612 0.0 0.0 0.0 0.0 0.9998612 0.0 0.0 0.0 0.0 1.0 0.0 0.0 3.80781 0.0 1.0</matrix>
+      <parent>World</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LLeg</name>
+    <data>
+      <matrix>0.5 0.0 0.0 0.0 0.0 0.8 0.0 0.0 0.0 0.0 0.5 0.0 0.5 -1.6 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>Head</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.9999112 0.0 0.0 0.0 0.0 0.9999112 0.0 0.0 2.0 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>RobotHead.obj</mesh>
+      <material>UV</material>
+    </data>
+  </object>
+  <object>
+    <name>RShin</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -2.0 0.0 1.0</matrix>
+      <parent>RLeg</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RArm</name>
+    <data>
+      <matrix>0.4 0.0 0.0 0.0 0.0 0.7 0.0 0.0 0.0 0.0 0.4 0.0 -1.2 0.3 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LShin</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -2.0 0.0 1.0</matrix>
+      <parent>LLeg</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LArm</name>
+    <data>
+      <matrix>0.4 0.0 0.0 0.0 0.0 0.7 0.0 0.0 0.0 0.0 0.4 0.0 1.2 0.3 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>LForearm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -2.0 0.0 1.0</matrix>
+      <parent>LArm</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>Camera3</name>
+    <data type="common.SceneCamera">
+      <matrix>0.9909787 -0.10009528 0.08910146 0.0 0.1081535 0.989981 -0.09074645 0.0 -0.0791248 0.09956397 0.99187833 0.0 -3.412871 3.959823 4.839567 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.01 1000.0</zPlanes>
+      <perspective>0.02 0.02</perspective>
+      <exposure>2.0</exposure>
+    </data>
+  </object>
+  <object>
+    <name>RForearm</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 -2.0 0.0 1.0</matrix>
+      <parent>RArm</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>RLeg</name>
+    <data>
+      <matrix>0.5 0.0 0.0 0.0 0.0 0.8 0.0 0.0 0.0 0.0 0.5 0.0 -0.5 -1.6 0.0 1.0</matrix>
+      <parent>Torso</parent>
+      <mesh>Cylinder</mesh>
+      <material>CB</material>
+    </data>
+  </object>
+  <object>
+    <name>Camera2</name>
+    <data type="common.SceneCamera">
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.4745616 0.8802221 0.0 0.0 -0.8802221 0.4745616 0.0 0.10909778 0.7879293 2.3404498 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.01 1000.0</zPlanes>
+      <perspective>0.02 0.02</perspective>
+      <exposure>2.0</exposure>
+    </data>
+  </object>
+  <object>
+    <name>Camera1</name>
+    <data type="common.SceneCamera">
+      <matrix>0.9340311 -9.780144E-5 -0.35719225 0.0 -0.10915293 0.95208615 -0.28568676 0.0 0.34010646 0.3058289 0.88926697 0.0 2.9667344 7.207859 5.917903 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.01 1000.0</zPlanes>
+      <perspective>0.02 0.02</perspective>
+      <exposure>2.0</exposure>
+    </data>
+  </object>
+</scene>

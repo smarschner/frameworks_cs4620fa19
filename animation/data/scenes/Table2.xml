@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <texture>
+    <name>Flower</name>
+    <data>
+      <file>data/textures/Flower.png</file>
+    </data>
+  </texture>
+  <texture>
+    <name>Wood</name>
+    <data>
+      <file>data/textures/Tablecloth.png</file>
+    </data>
+  </texture>
+  <mesh>
+    <name>Teapot</name>
+    <data>
+      <file>data/meshes/teapot.obj</file>
+    </data>
+  </mesh>
+  <mesh>
+    <name>Plane</name>
+    <data>
+      <generator type="mesh.gen.MeshGenPlane"/>
+      <genOptions>
+        <divLatitude>80</divLatitude>
+        <divLongitude>120</divLongitude>
+        <innerRadius>0.25</innerRadius>
+      </genOptions>
+    </data>
+  </mesh>
+  <material>
+    <name>Flower</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Flower</texture>
+      </diffuse>
+      <fibercolor>
+        <color>165 42 42 255 </color>
+      </fibercolor>
+      <fiberdirection>
+        <color>255 0 0 255 </color>
+      </fiberdirection>
+      <normal>
+        <color>128 128 255 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+      <shininess>50.0</shininess>
+      <roughness>0.3</roughness>
+      <dispMagnitude>0.3</dispMagnitude>
+    </data>
+  </material>
+  <material>
+    <name>Wood</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Wood</texture>
+      </diffuse>
+      <fibercolor>
+        <color>165 42 42 255 </color>
+      </fibercolor>
+      <fiberdirection>
+        <color>255 0 0 255 </color>
+      </fiberdirection>
+      <normal>
+        <color>128 128 255 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+      <shininess>50.0</shininess>
+      <roughness>0.3</roughness>
+      <dispMagnitude>0.3</dispMagnitude>
+    </data>
+  </material>
+  <object>
+    <name>Leg2</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 1.0 0.0 1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Teapot</name>
+    <data>
+      <matrix>0.02 0.0 0.148 0.0 0.0 0.15 0.0 0.0 -0.148 0.0 0.02 0.0 -0.503 1.1 0.863 1.0</matrix>
+      <parent>TabletopAndTeapot</parent>
+      <mesh>Teapot</mesh>
+      <material>Flower</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg3</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 1.0 0.0 -1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg4</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 -1.0 0.0 -1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Table</name>
+    <data>
+      <matrix>0.707 0.0 -0.707 0.0 0.0 1.0 0.0 0.0 0.707 0.0 0.707 0.0 0.0 1.0 0.0 1.0</matrix>
+      <parent>World</parent>
+    </data>
+  </object>
+  <object>
+    <name>TabletopAndTeapot</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0</matrix>
+      <parent>Table</parent>
+    </data>
+  </object>
+  <object>
+    <name>Leg1</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 -1.0 0.0 1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Camera</name>
+    <data type="common.SceneCamera">
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.9514459 -0.30781502 0.0 0.0 0.30781502 0.9514459 0.0 0.0 3.548312 7.7389064 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.02 1000.0</zPlanes>
+      <perspective>0.01 0.01</perspective>
+      <exposure>2.0</exposure>
+    </data>
+  </object>
+  <object>
+    <name>Tabletop</name>
+    <data>
+      <matrix>1.3 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.0 0.0 1.3 0.0 0.0 1.0 0.0 1.0</matrix>
+      <parent>TabletopAndTeapot</parent>
+      <mesh>Cube</mesh>
+      <material>Wood</material>
+    </data>
+  </object>
+</scene>

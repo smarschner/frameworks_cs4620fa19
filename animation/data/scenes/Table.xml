@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <mesh>
+    <name>Teapot</name>
+    <data>
+      <file>data/meshes/teapot.obj</file>
+    </data>
+  </mesh>
+  <texture>
+    <name>Wood</name>
+    <data>
+      <file>data/textures/Tablecloth.png</file>
+    </data>
+  </texture>
+  <texture>
+    <name>Flower</name>
+    <data>
+      <file>data/textures/Flower.png</file>
+    </data>
+  </texture>
+  <material>
+    <name>Flower</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Flower</texture>
+      </diffuse>
+    </data>
+  </material>
+  <material>
+    <name>Wood</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Wood</texture>
+      </diffuse>
+      <normal>
+        <color>128 128 255 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+    </data>
+  </material>
+
+  <object>
+    <name>Table</name>
+    <data>
+      <matrix>0.707 0.0 -0.707 0.0 0.0 1.0 0.0 0.0 0.707 0.0 0.707 0.0 0.0 1.0 0.0 1.0</matrix>
+    </data>
+  </object>
+  <object>
+    <name>Tabletop</name>
+    <data>
+      <matrix>1.3 0.0 0.0 0.0 0.0 0.1 0.0 0.0 0.0 0.0 1.3 0.0 0.0 1.0 0.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Wood</material>
+    </data>
+  </object>
+  <object>
+    <name>Teapot</name>
+    <data>
+      <matrix>0.015 0.0 0.114 0.0 0.0 1.5 0.0 0.0 -0.114 0.0 0.015 0.0 -0.387 1.0 0.664 1.0</matrix>
+      <parent>Tabletop</parent>
+      <mesh>Teapot</mesh>
+      <material>Flower</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg1</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 -1.0 0.0 1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg2</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 1.0 0.0 1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg3</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 1.0 0.0 -1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Leg4</name>
+    <data>
+      <matrix>0.1 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 0.1 0.0 -1.0 0.0 -1.0 1.0</matrix>
+      <parent>Table</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+
+
+  <object>
+    <name>Camera</name>
+    <data type="common.SceneCamera">
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.9514459 -0.30781502 0.0 0.0 0.30781502 0.9514459 0.0 0.0 3.548312 7.7389064 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.02 1000.0</zPlanes>
+      <perspective>0.01 0.01</perspective>
+    </data>
+  </object>
+</scene>

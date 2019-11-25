@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scene>
+  <texture>
+    <name>EarthTex</name>
+    <data>
+      <file>data/textures/Earth.png</file>
+    </data>
+  </texture>
+  <material>
+    <name>Earth</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>EarthTex</texture>
+      </diffuse>
+      <normal>
+        <color>128 128 255 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+    </data>
+  </material>
+  <material>
+    <name>Checker</name>
+    <data>
+      <type>Ambient</type>
+      <diffuse>
+        <texture>Checker Board</texture>
+      </diffuse>
+      <normal>
+        <color>128 128 255 255 </color>
+      </normal>
+      <specular>
+        <color>255 255 255 255 </color>
+      </specular>
+    </data>
+  </material>
+  <object>
+    <name>Obj2</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 3.8447983 0.0 1.0</matrix>
+      <parent>Cyl2</parent>
+      <mesh>Cylinder</mesh>
+      <material> Checker </material>
+    </data>
+  </object>
+  <object>
+    <name>Camera</name>
+    <data type="common.SceneCamera">
+      <matrix>1.0 0.0 0.0 0.0 0.0 0.99809235 0.06173785 0.0 0.0 -0.06173785 0.99809235 0.0 0.0 0.25430518 10.010475 1.0</matrix>
+      <parent>World</parent>
+      <zPlanes>0.02 1000.0</zPlanes>
+      <perspective>0.01 0.01</perspective>
+    </data>
+  </object>
+  <object>
+    <name>Cube1</name>
+    <data>
+      <matrix>0.998942 -0.035048816 -0.029775333 0.0 5.522347E-4 0.65654135 -0.7542911 0.0 0.045985736 0.75347686 0.6558656 0.0 2.1342692 3.1213706 1.9150131 1.0</matrix>
+      <parent>Center</parent>
+      <mesh>Cube</mesh>
+      <material>Checker</material>
+    </data>
+  </object>
+  <object>
+    <name>Ground</name>
+    <data>
+      <matrix>100.0 0.0 0.0 0.0 0.0 0.01 0.0 0.0 0.0 0.0 100.0 0.0 0.0 0.0 0.0 1.0</matrix>
+      <parent>World</parent>
+      <mesh>Cube</mesh>
+      <material>Generic</material>
+    </data>
+  </object>
+  <object>
+    <name>Center</name>
+    <data>
+      <matrix>0.7057117 0.0 0.023571368 0.0 0.0 0.38165534 0.0 0.0 -0.08160162 0.0 0.10101831 0.0 -0.0327058 0.793244 -0.0011228403 1.0</matrix>
+      <parent>World</parent>
+      <mesh>Sphere</mesh>
+      <material>Earth</material>
+    </data>
+  </object>
+  <object>
+    <name>Cyl1</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 -2.4970536 1.387479 0.0 1.0</matrix>
+      <parent>Center</parent>
+      <mesh>Cylinder</mesh>
+      <material>Checker</material>
+    </data>
+  </object>
+  <object>
+    <name>Sphere1</name>
+    <data>
+      <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 1.8784025 -39.23709 1.0</matrix>
+      <parent>Center</parent>
+      <mesh>Sphere</mesh>
+      <material>Checker</material>
+    </data>
+  </object>
+</scene>
