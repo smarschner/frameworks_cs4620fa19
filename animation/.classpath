@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="deps/lib/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="deps/lib/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="deps/lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="deps/lib/jinput.jar"/>
+	<classpathentry kind="lib" path="deps/lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_test.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_util_applet.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl-debug.jar"/>
+	<classpathentry kind="lib" path="deps/lib/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/Users/xiaojizhang/Documents/courses/cornell/cs4620/frameworks_cs4620fa19/animation/deps/native/macosx"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="deps/lib/lzma.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-3.0.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-3.0.0.jar"/>
+	<classpathentry kind="lib" path="deps/lib/openexrjni-test.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
