@@ -372,6 +372,8 @@ public class Quat extends AbstractList<Float> implements Cloneable {
             // To find the angle between q1 and q2  (i1 and i2), you need to first calculate
             // calculate its cosine and clamp to [0,1], then call Math.acos(...) to get the angle.
             // If theta < 0.01f, apply linear interpolation. Otherwise, apply slerp.
+        	Quat q = null;
+        	return q;
         }
 
 	/**
