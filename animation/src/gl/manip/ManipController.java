@@ -441,6 +441,7 @@ public class ManipController implements IDisposable {
             }
             currentObject = rEnv.findObject(o);
             setCurrentManipType(Manipulator.Type.ROTATE);
+            eng.resetFrameTransformation(currentObject.sceneObject.getID().name);
         }
         else if(currentObject != null && !onTimeline) {
             currentObject = null;

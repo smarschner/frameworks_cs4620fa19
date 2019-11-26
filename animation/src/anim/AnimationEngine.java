@@ -148,7 +148,7 @@ public class AnimationEngine {
      */
     public void resetFrameTransformation(String oName) {
         AnimTimeline tl = timelines.get(oName);
-        if (!tl.hasKeyFrame(getCurrentFrame())) {
+        if (!tl.hasKeyFrame(getCurrentFrame()) || tl.frames.size() == 1) {
             for (int i = 0; i < 3; i++)
                 tl.object.curRotate[i] = tl.object.prevRotate[i];
         }
