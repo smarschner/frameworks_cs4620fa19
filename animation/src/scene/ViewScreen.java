@@ -111,6 +111,11 @@ public class ViewScreen extends GameScreen {
                     animTimeViewer.LeftDownTimeline = true;
                     selected = manipController.getCurrentObject();
                     currFrame = rController.animEngine.getCurrentFrame();
+                    if (selected == null) {
+                    	System.out.println("No object selected!\n");
+                        rController.animEngine.moveToFrame(frame);
+                    	return;
+                    }
                     oName = selected.sceneObject.getID().name;
                     if (currFrame == frame) {
                         // if frame is equal to current frame, then add key frame if possibles
